@@ -1680,7 +1680,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 				task.wait(math.random(60,30))
 				RayfieldLibrary:Notify({
 					Title = "Fluster Cloud",
-					Content = "task.textbox.message = "Congig saved successfully" ",
+					Content = "Backup saved successfully",
 					Duration = 7,
 					Image = 4370033185,
 				})
