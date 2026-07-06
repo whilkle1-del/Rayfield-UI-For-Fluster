@@ -57,7 +57,7 @@ local function loadWithTimeout(url: string, timeout: number?): ...any
 
 	-- Wait for completion or timeout
 	while not requestCompleted do
-		task.wait()
+		task.task.wait()
 	end
 	-- Cancel timeout thread if still running when request completes
 	if coroutine.status(timeoutThread) ~= "dead" then
@@ -1057,7 +1057,7 @@ function RayfieldLibrary:Notify(data) -- action e.g open messages
 		newNotification.Icon.ImageTransparency = 1
 		newNotification.Icon.BackgroundTransparency = 1
 
-		task.wait()
+		task.task.wait()
 
 		newNotification.Visible = true
 
@@ -1949,7 +1949,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 		end
 	end
 	if Settings.KeySystem then
-		repeat task.wait() until Passthrough
+		repeat task.task.wait() until Passthrough
 	end
 
 	Notifications.Template.Visible = false
@@ -3289,7 +3289,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 					Toggle.Switch.Shadow.Visible = false
 				end
 
-				task.wait()
+				task.task.wait()
 
 				if not ToggleSettings.CurrentValue then
 					Toggle.Switch.Indicator.UIStroke.Color = SelectedTheme.ToggleDisabledStroke
